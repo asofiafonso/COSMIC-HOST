@@ -1,13 +1,10 @@
-# Sample Python script to generate parameter files for Galapy
 import pandas as pd
 
-# Read the ASCII table into a DataFrame
-filename = 'SNIa_SDSS_flux.txt'
 
-# Read the ASCII table into a DataFrame
+filename = 'SNIa_SDSS_flux.txt'
 df = pd.read_csv(filename, sep="\s+")
 
-# Template for the parameter file content
+
 template = """# Galapy Hyper Parameter File for Galaxy %s
 
 
@@ -344,26 +341,19 @@ pickle_sampler = False
 """
 
 
-# Loop through the DataFrame and create files
 for index, row in df.iterrows():
-    # Prepare data to insert into the template
     bands = "('SDSS.g', 'SDSS.r', 'SDSS.i', 'SDSS.z')"
     fluxes = f"[{row['SDSS.g']}, {row['SDSS.r']}, {row['SDSS.i']}, {row['SDSS.z']}]"
     errors = f"[{row['SDSS.g_err']}, {row['SDSS.r_err']}, {row['SDSS.i_err']}, {row['SDSS.z_err']}]"
     redshift = row['redshift']
 
-    # Use 'id' to match the lowercase placeholder in your template
     galaxy_id = int(row['ID'])
 
-    # Format the template with this row's data, ensuring placeholder keys match
     file_content = template%(galaxy_id,bands,fluxes,errors,[False]*len(bands.split(",")),redshift, f"'gal_{galaxy_id}'")
 
-    # Define the filename
     filename = f"galapy_hyper_parameter_{int(galaxy_id)}.py"
 
-    # Write the content to a new file
     with open(filename, 'w') as file:
         file.write(file_content)
 
-    # Print a message to the terminal for each file generated
     print(f"Generated parameter file for galaxy ID {galaxy_id}: {filename}")
