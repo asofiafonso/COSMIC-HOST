@@ -342,8 +342,8 @@ pickle_sampler = False
 
 
 for index, row in df.iterrows():
-    bands = "('SDSS.g', 'SDSS.r', 'SDSS.i', 'SDSS.z', 'Euclid.VIS', Euclid.Y', 'Euclid.J', 'Euclid.H')"
-    fluxes = f"[{row['SDSS.g']}, {row['SDSS.r']}, {row['SDSS.i']}, {row['SDSS.z']},{row['Euclid.VIS']}, {row['Euclid.Y']}, {row['Euclid.J']}, {row['Euclid.H']}} ]"
+    bands = "('SDSS.g', 'SDSS.r', 'SDSS.i', 'SDSS.z', 'Euclid.VIS', 'Euclid.Y', 'Euclid.J', 'Euclid.H')"
+    fluxes = f"[{row['SDSS.g']}, {row['SDSS.r']}, {row['SDSS.i']}, {row['SDSS.z']},{row['Euclid.VIS']}, {row['Euclid.Y']}, {row['Euclid.J']}, {row['Euclid.H']} ]"
     errors = f"[{row['SDSS.g_err']}, {row['SDSS.r_err']}, {row['SDSS.i_err']}, {row['SDSS.z_err']}, {row['Euclid.VIS_err']}, {row['Euclid.Y_err']}, {row['Euclid.J_err']}, {row['Euclid.H_err']}]"
     redshift = row['redshift']
 
@@ -351,7 +351,7 @@ for index, row in df.iterrows():
 
     file_content = template%(galaxy_id,bands,fluxes,errors,[False]*len(bands.split(",")),redshift, f"'gal_{galaxy_id}'")
 
-    filename = f"galapy_hyper_parameter_{int(galaxy_id)}_lognormal_dynesty}.py"
+    filename = f"galapy_hyper_parameter_{int(galaxy_id)}_lognormal_dynesty.py"
 
     with open(filename, 'w') as file:
         file.write(file_content)
