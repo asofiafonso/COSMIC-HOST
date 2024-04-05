@@ -295,7 +295,7 @@ output_directory = ''
 
 # An identification name, it will be pre-pended to all files stored in the output directory
 # (if the string is empty the current date+time will be used)
-run_id = 'gal_63900000'_insitu
+run_id = 'gal_63900000_insitu'
 
 # The method used for storing results.
 # Possible choices are:

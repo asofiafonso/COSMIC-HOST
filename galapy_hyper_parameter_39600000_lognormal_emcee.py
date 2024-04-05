@@ -295,7 +295,7 @@ output_directory = ''
 
 # An identification name, it will be pre-pended to all files stored in the output directory
 # (if the string is empty the current date+time will be used)
-run_id = 'gal_39600000'_lognormal
+run_id = 'gal_39600000_lognormal'
 
 # The method used for storing results.
 # Possible choices are:

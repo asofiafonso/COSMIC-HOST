@@ -302,7 +302,7 @@ output_directory = ''
 
 # An identification name, it will be pre-pended to all files stored in the output directory
 # (if the string is empty the current date+time will be used)
-run_id = %s_lognormal
+run_id = '%s_lognormal'
 
 # The method used for storing results.
 # Possible choices are:
@@ -349,7 +349,7 @@ for index, row in df.iterrows():
 
     galaxy_id = int(row['ID'])
 
-    file_content = template%(galaxy_id,bands,fluxes,errors,[False]*len(bands.split(",")),redshift, f"'gal_{galaxy_id}'")
+    file_content = template%(galaxy_id,bands,fluxes,errors,[False]*len(bands.split(",")),redshift, f"gal_{galaxy_id}")
 
     filename = f"galapy_hyper_parameter_{int(galaxy_id)}_lognormal_emcee.py"
 

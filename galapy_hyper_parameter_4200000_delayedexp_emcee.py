@@ -295,7 +295,7 @@ output_directory = ''
 
 # An identification name, it will be pre-pended to all files stored in the output directory
 # (if the string is empty the current date+time will be used)
-run_id = 'gal_4200000'_delayexp
+run_id = 'gal_4200000_delayexp'
 
 # The method used for storing results.
 # Possible choices are:
